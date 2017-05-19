@@ -1,0 +1,24 @@
+<%-include ../include/head.html%>
+<form action="/article/add" id="form" method="post" enctype="multipart/form-data">
+    <div class="box">
+        <div class="col-md-12 marg">
+            <label for="title" class="hint col-md-2">文章标题 :</label>
+            <input type="text" class="col-md-9" id="title" placeholder="请输入标题名称" name="title"/>
+        </div>
+        <div class="col-md-12 marg">
+            <label for="content" class="hint col-md-2">文章内容 :</label>
+            <textarea id="content" placeholder="请输入想要发表的内容" name="content" cols="86" rows="8"></textarea>
+        </div>
+
+        <div class="col-md-12 marg">
+            <label for="poster" class="hint col-md-2">图片 :</label>
+            <input type="file" class="" id="poster" placeholder="上传图片" name="poster">
+        </div>
+
+        <div class="form-group col-md-12 marg">
+           <button type="submit" id="publishBtn">发表</button>
+        </div>
+    </div>
+    <div class="background"></div>
+</form>
+<%-include ../include/foot.html%>

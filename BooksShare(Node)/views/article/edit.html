@@ -1,0 +1,25 @@
+<%-include ../include/head.html%>
+<form class="form-horizontal" id="form" action="/article/edit/<%=article.id%>" method="post" enctype="multipart/form-data">
+    <div class="box">
+        <div class="col-md-12 marg">
+            <label for="title" class="hint col-md-2">文章标题 :</label>
+            <input type="text" class="col-md-9" id="title"  value="<%=article.title%>" name="title">
+        </div>
+
+        <div class="col-md-12 marg">
+            <label for="content" class="hint col-md-2">文章内容 :</label>
+            <textarea id="content"  name="content" cols="86" rows="8"><%=article.content%></textarea>
+        </div>
+
+        <div class="col-md-12 marg">
+            <label for="poster" class="hint col-md-2">图片 :</label>
+            <input type="file" class="" id="poster" placeholder="上传图片" name="poster">
+        </div>
+
+        <div class="form-group col-md-12 marg">
+            <button type="submit" id="publishBtn">编辑</button>
+        </div>
+    </div>
+    <div class="background"></div>
+</form>
+<%-include ../include/foot.html%>

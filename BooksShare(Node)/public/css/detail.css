@@ -1,0 +1,68 @@
+#detailBox{
+    width:80%;
+    height:110%;
+    margin:20px auto 0px;
+    position:relative;
+    color:#fff;
+    font-family: "Microsoft YaHei", sans-serif;
+    display:none;
+}
+.bgc{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    background-color:#265a88;
+    opacity:0.5;
+    z-index: -100;
+    border-radius:10px;
+}
+#panel-title{
+    font-size:20px;
+    text-align: center;
+    padding-top:20px;
+}
+#media-object{
+    width:28%;
+    margin:20px;
+    border:1px solid #269abc;
+}
+#avatar{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    margin-left:20px;
+    border:3px solid #fff;
+}
+.content{
+    width:60%;
+    height:65%;
+    border:1px solid #269abc;
+    position:absolute;
+    left:33%;
+    top:85px;
+    padding:10px;
+}
+#media-bottom{
+    position:absolute;
+    bottom:110px;
+}
+#btn-footer{
+    width:100%;
+    position:absolute;
+    bottom:40px;
+}
+#btn-footer a{
+    background-color:transparent;
+    color:#fff;
+    transition:all linear 0.3s;
+}
+#btn-footer .a1:hover{
+    border:1px solid deepskyblue;
+    color:deepskyblue;
+}
+#btn-footer .a2:hover{
+    border:1px solid red;
+    color:red;
+}

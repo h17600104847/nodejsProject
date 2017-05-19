@@ -1,0 +1,27 @@
+<%-include ../include/head.html%>
+<div id="detailBox">
+    <div class="panel-heading">
+        <h3 class="panel-title" id="panel-title"><%=article.title%></h3>
+    </div>
+    <div class="media-body">
+        <%if (article.poster) {%>
+        <div class="imgbox">
+            <img id="media-object" src="<%=article.poster%>">
+        </div>
+        <%}%>
+        <p class="content"><%-article.content%></p>
+    </div>
+    <div id="media-bottom">
+        <a>
+            <img id="avatar" src="<%=article.user.avatar%>" alt="">
+        </a>
+        <span>作者 : <%=article.user.username%></span>
+        <span>/时间 : <%=article.createAt.toLocaleString()%></span>
+    </div>
+    <div id="btn-footer">
+        <a href="/article/edit/<%=article.id%>" type="btn" class="a1 btn btn-primary col-lg-2 col-sm-offset-3">编辑</a>
+        <a href="/article/remove/<%=article.id%>" type="btn" class="a2 btn btn-danger col-lg-2 col-sm-offset-1">删除</a>
+    </div>
+    <div class="bgc"></div>
+</div>
+<%-include ../include/foot.html%>

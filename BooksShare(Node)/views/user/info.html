@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/info.css"/>
+    <title><%=title%></title>
+</head>
+<body>
+<div class="infoBox">
+    <div class="">
+        <nav id="nav" class="navbar" role="navigation">
+            <div id="navbar-header">
+                <a id="navbar-brand" href="/user/info">图书分享</a>
+            </div>
+            <div>
+                <ul id="navbar-nav">
+                    <li id="add"><a href="/article/add">分享</a></li>
+                    <li id="logout"><a href="/user/logout">退出</a></li>
+                </ul>
+            </div>
+            <div class="formSty">
+                <form class="navbar-form navbar-left" action="/user/info/?keyword=<%=keyword%>" method="get">
+                    <div class="form-group">
+                        <input name="keyword" type="text" id="inpt" placeholder="Search">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="searchBtn">搜索</button>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <%articles.forEach(function (article,index) {%>
+        <div id="cont">
+            <div class="">
+                <a href="/article/detail/<%=article.id%>">
+                    <h3 id="panel-title"><%=article.title%></h3>
+                    <span id="time"><%=article.createAt.toLocaleString()%></span>
+                </a>
+            </div>
+            <div>
+                <%if (article.poster) {%>
+                <a id="articleImg" href="/article/detail/<%=article.id%>">
+                    <img src="<%=article.poster%>">
+                </a>
+                <%}%>
+            </div>
+            <div class="posterInfo">
+                <a id="poster" href="/article/detail/<%=article.id%>">
+                    <img class="media-object" src="<%=article.user.avatar%>" alt="">
+                </a>
+                <p class="cont-box"><%-article.content%></p>
+                <span class="author">作者:<%=article.user.username%></span>
+            </div>
+        </div>
+        <%})%>
+    </div>
+<!--显示分页的区域-->
+    <nav class="page">
+        <ul class="pagination">
+            <li><a href="/user/info/?keyword=<%=keyword%>&pageNum=<%=(pageNum>1?pageNum-1:1)%>&pageSize=<%=pageSize%>">&laquo;</a></li>
+            <%for (var i = 1;i <= totalPage;i++) {%>
+            <li class="<%=(i==pageNum?'active':'')%>"><a href="/?keyword=<%=keyword%>&pageNum=<%=i%>&pageSize=<%=pageSize%>"><%=i%></a></li>
+            <%}%>
+            <li><a href="/user/info/?keyword=<%=keyword%>&pageNum=<%=(pageNum<totalPage?pageNum+1:totalPage)%>&pageSize=<%=pageSize%>">&raquo;</a></li>
+        </ul>
+    </nav>
+    <div class="backgrou"></div>
+</div>
+</body>
+</html>
+<script src="/js/jquery.1.7.1.min.js"></script>
+<script>
+    $(function () {
+        $('.infoBox').stop().fadeIn(1000);
+    })
+</script>
